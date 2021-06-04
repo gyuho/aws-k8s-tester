@@ -9,9 +9,6 @@ gofmt -s -w .
 goimports -w ./cloudwatch-agent
 gofmt -s -w ./cloudwatch-agent
 
-goimports -w ./clusterloader
-gofmt -s -w ./clusterloader
-
 goimports -w ./cmd/k8s-tester
 gofmt -s -w ./cmd/k8s-tester
 
@@ -53,9 +50,6 @@ gofmt -s -w ./php-apache
 
 goimports -w ./secrets
 gofmt -s -w ./secrets
-
-goimports -w ./stress
-gofmt -s -w ./stress
 
 goimports -w ./tester
 gofmt -s -w ./tester
