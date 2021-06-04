@@ -1,4 +1,4 @@
-// Package secrets a simple pi Pod with Job.
+// Package secrets installs Secrets.
 // Replace https://github.com/aws/aws-k8s-tester/tree/v1.5.9/eks/secrets.
 package secrets
 

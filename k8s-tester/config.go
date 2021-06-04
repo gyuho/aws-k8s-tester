@@ -233,6 +233,11 @@ func (cfg *Config) ValidateAndSetDefaults() error {
 			return err
 		}
 	}
+	if cfg.AddOnCSRs != nil {
+		if err := cfg.AddOnCSRs.ValidateAndSetDefaults(); err != nil {
+			return err
+		}
+	}
 
 	return nil
 }

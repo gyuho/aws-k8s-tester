@@ -8,7 +8,7 @@ import (
 	"go.uber.org/zap"
 )
 
-func TestSonobuoy(t *testing.T) {
+func Test_installSonobuoy(t *testing.T) {
 	t.Skip()
 
 	err := installSonobuoy(zap.NewExample(), DefaultSonobuoyPath(), DefaultSonobuoyDownloadURL())

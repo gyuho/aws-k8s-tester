@@ -1,4 +1,4 @@
-// Package csrs a simple pi Pod with Job.
+// Package csrs installs CSRs.
 // Replace https://github.com/aws/aws-k8s-tester/tree/v1.5.9/eks/csrs.
 package csrs
 

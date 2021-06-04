@@ -1,4 +1,4 @@
-// Package jobs_pi a simple pi Pod with Job.
+// Package jobs_pi installs a simple pi Pod with Job.
 // Replace https://github.com/aws/aws-k8s-tester/tree/v1.5.9/eks/jobs-pi.
 package jobs_pi
 

@@ -1,4 +1,4 @@
-// Package conformance a simple pi Pod with Job.
+// Package conformance runs Kubernetes conformance tests.
 // Replace https://github.com/aws/aws-k8s-tester/tree/v1.5.9/eks/conformance.
 package conformance
 

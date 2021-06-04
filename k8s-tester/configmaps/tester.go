@@ -1,4 +1,4 @@
-// Package configmaps a simple pi Pod with Job.
+// Package configmaps installs ConfigMaps.
 // Replace https://github.com/aws/aws-k8s-tester/tree/v1.5.9/eks/configmaps.
 package configmaps
 
