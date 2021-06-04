@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/aws/aws-k8s-tester/k8s-tester v0.0.0-00010101000000-000000000000
+	github.com/aws/aws-k8s-tester/k8s-tester/clusterloader v0.0.0-00010101000000-000000000000 // indirect
 	github.com/aws/aws-k8s-tester/utils v0.0.0-00010101000000-000000000000
 	github.com/spf13/cobra v1.1.3
 )
@@ -13,6 +14,7 @@ replace (
 
 	github.com/aws/aws-k8s-tester/k8s-tester => ../..
 	github.com/aws/aws-k8s-tester/k8s-tester/cloudwatch-agent => ../../cloudwatch-agent
+	github.com/aws/aws-k8s-tester/k8s-tester/clusterloader => ../../clusterloader
 	github.com/aws/aws-k8s-tester/k8s-tester/configmaps => ../../configmaps
 	github.com/aws/aws-k8s-tester/k8s-tester/conformance => ../../conformance
 	github.com/aws/aws-k8s-tester/k8s-tester/csi-ebs => ../../csi-ebs

@@ -9,6 +9,9 @@ gofmt -s -w .
 goimports -w ./cloudwatch-agent
 gofmt -s -w ./cloudwatch-agent
 
+goimports -w ./clusterloader
+gofmt -s -w ./clusterloader
+
 goimports -w ./cmd/k8s-tester
 gofmt -s -w ./cmd/k8s-tester
 
