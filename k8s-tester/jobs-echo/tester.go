@@ -78,6 +78,17 @@ type Config struct {
 	FailedJobsHistoryLimit int32 `json:"failed_jobs_history_limit"`
 }
 
+func (cfg *Config) ValidateAndSetDefaults() error {
+	if cfg.MinimumNodes == 0 {
+		cfg.MinimumNodes = DefaultMinimumNodes
+	}
+	if cfg.Namespace == "" {
+		return errors.New("empty Namespace")
+	}
+
+	return nil
+}
+
 // writes total 100 MB data to etcd
 // Completes: 1000,
 // Parallels: 100,
@@ -274,7 +285,7 @@ const (
 func (ts *tester) checkECRImage() (img string, err error) {
 	// check ECR permission
 	// ref. https://github.com/aws/aws-k8s-tester/blob/v1.5.9/eks/jobs-echo/jobs-echo.go#L75-L90
-	img, _, err = ts.cfg.Repository.Check(ts.cfg.Logger, ts.cfg.ECRAPI)
+	img, _, err = ts.cfg.Repository.Describe(ts.cfg.Logger, ts.cfg.ECRAPI)
 	if err != nil {
 		ts.cfg.Logger.Warn("failed to describe ECR image", zap.Error(err))
 		img = jobBusyboxImageName

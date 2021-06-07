@@ -35,6 +35,14 @@ type Config struct {
 	MinimumNodes int `json:"minimum_nodes"`
 }
 
+func (cfg *Config) ValidateAndSetDefaults() error {
+	if cfg.MinimumNodes == 0 {
+		cfg.MinimumNodes = DefaultMinimumNodes
+	}
+
+	return nil
+}
+
 const DefaultMinimumNodes int = 1
 
 func NewDefault() *Config {

@@ -67,6 +67,17 @@ type Config struct {
 	ELBURL string `json:"elb_url" read-only:"true"`
 }
 
+func (cfg *Config) ValidateAndSetDefaults() error {
+	if cfg.MinimumNodes == 0 {
+		cfg.MinimumNodes = DefaultMinimumNodes
+	}
+	if cfg.Namespace == "" {
+		return errors.New("empty Namespace")
+	}
+
+	return nil
+}
+
 const (
 	DefaultMinimumNodes       int   = 1
 	DefaultDeploymentReplicas int32 = 2

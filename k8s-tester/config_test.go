@@ -719,3 +719,28 @@ func TestEnvAddOnClusterloader(t *testing.T) {
 		t.Fatalf("unexpected cfg.AddOnClusterloader.TestOverride.EnableSystemPodMetrics %v", cfg.AddOnClusterloader.TestOverride.EnableSystemPodMetrics)
 	}
 }
+
+func TestEnvAddOnStress(t *testing.T) {
+	cfg := NewDefault()
+
+	os.Setenv("K8S_TESTER_ADD_ON_STRESS_ENABLE", "true")
+	defer os.Unsetenv("K8S_TESTER_ADD_ON_STRESS_ENABLE")
+	os.Setenv("K8S_TESTER_ADD_ON_STRESS_NAMESPACE", "hello")
+	defer os.Unsetenv("K8S_TESTER_ADD_ON_STRESS_NAMESPACE")
+	os.Setenv("K8S_TESTER_ADD_ON_STRESS_RUN_TIMEOUT", "11h")
+	defer os.Unsetenv("K8S_TESTER_ADD_ON_STRESS_RUN_TIMEOUT")
+
+	if err := cfg.UpdateFromEnvs(); err != nil {
+		t.Fatal(err)
+	}
+
+	if !cfg.AddOnStress.Enable {
+		t.Fatalf("unexpected cfg.AddOnStress.Enable %v", cfg.AddOnStress.Enable)
+	}
+	if cfg.AddOnStress.Namespace != "hello" {
+		t.Fatalf("unexpected cfg.AddOnStress.Namespace %v", cfg.AddOnStress.Namespace)
+	}
+	if cfg.AddOnStress.RunTimeout != 11*time.Hour {
+		t.Fatalf("unexpected cfg.AddOnStress.RunTimeout %v", cfg.AddOnStress.RunTimeout)
+	}
+}

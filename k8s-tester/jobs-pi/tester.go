@@ -46,6 +46,17 @@ type Config struct {
 	Parallels int32 `json:"parallels"`
 }
 
+func (cfg *Config) ValidateAndSetDefaults() error {
+	if cfg.MinimumNodes == 0 {
+		cfg.MinimumNodes = DefaultMinimumNodes
+	}
+	if cfg.Namespace == "" {
+		return errors.New("empty Namespace")
+	}
+
+	return nil
+}
+
 const (
 	DefaultMinimumNodes int   = 1
 	DefaultCompletes    int32 = 10
