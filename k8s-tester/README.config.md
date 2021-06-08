@@ -107,7 +107,6 @@
 | K8S_TESTER_ADD_ON_PHP_APACHE_DEPLOYMENT_REPLICAS      | SETTABLE VIA ENV VAR | *php_apache.Config.DeploymentReplicas     | int32             |
 *-------------------------------------------------------*----------------------*-------------------------------------------*-------------------*
 
-
 *----------------------------------------------------*----------------------*---------------------------*---------*
 |               ENVIRONMENTAL VARIABLE               |      FIELD TYPE      |           TYPE            | GO TYPE |
 *----------------------------------------------------*----------------------*---------------------------*---------*
@@ -162,7 +161,6 @@
 | K8S_TESTER_ADD_ON_JOBS_ECHO_FAILED_JOBS_HISTORY_LIMIT     | SETTABLE VIA ENV VAR | *jobs_echo.Config.FailedJobsHistoryLimit     | int32   |
 *-----------------------------------------------------------*----------------------*----------------------------------------------*---------*
 
-
 *---------------------------------------------------*----------------------*---------------------------*---------*
 |              ENVIRONMENTAL VARIABLE               |      FIELD TYPE      |           TYPE            | GO TYPE |
 *---------------------------------------------------*----------------------*---------------------------*---------*
@@ -188,7 +186,6 @@
 | K8S_TESTER_ADD_ON_CRON_JOBS_ECHO_SUCCESSFUL_JOBS_HISTORY_LIMIT | SETTABLE VIA ENV VAR | *jobs_echo.Config.SuccessfulJobsHistoryLimit | int32   |
 | K8S_TESTER_ADD_ON_CRON_JOBS_ECHO_FAILED_JOBS_HISTORY_LIMIT     | SETTABLE VIA ENV VAR | *jobs_echo.Config.FailedJobsHistoryLimit     | int32   |
 *----------------------------------------------------------------*----------------------*----------------------------------------------*---------*
-
 
 *--------------------------------------------------------*----------------------*---------------------------*---------*
 |                 ENVIRONMENTAL VARIABLE                 |      FIELD TYPE      |           TYPE            | GO TYPE |
@@ -257,7 +254,6 @@
 | K8S_TESTER_ADD_ON_CLUSTERLOADER_POD_STARTUP_LATENCY_PATH    | READ-ONLY            | *clusterloader.Config.PodStartupLatencyPath    | string                 |
 *-------------------------------------------------------------*----------------------*------------------------------------------------*------------------------*
 
-
 *----------------------------------------------------------------------------------*----------------------*-------------------------------------------------------------*---------*
 |                              ENVIRONMENTAL VARIABLE                              |      FIELD TYPE      |                            TYPE                             | GO TYPE |
 *----------------------------------------------------------------------------------*----------------------*-------------------------------------------------------------*---------*
@@ -284,6 +280,7 @@
 | K8S_TESTER_ADD_ON_STRESS_ENABLE                     | SETTABLE VIA ENV VAR | *stress.Config.Enable                  | bool            |
 | K8S_TESTER_ADD_ON_STRESS_MINIMUM_NODES              | SETTABLE VIA ENV VAR | *stress.Config.MinimumNodes            | int             |
 | K8S_TESTER_ADD_ON_STRESS_NAMESPACE                  | SETTABLE VIA ENV VAR | *stress.Config.Namespace               | string          |
+| K8S_TESTER_ADD_ON_STRESS_ECR_BUSYBOX_IMAGE          | SETTABLE VIA ENV VAR | *stress.Config.ECRBusyboxImage         | string          |
 | K8S_TESTER_ADD_ON_STRESS_RUN_TIMEOUT                | SETTABLE VIA ENV VAR | *stress.Config.RunTimeout              | time.Duration   |
 | K8S_TESTER_ADD_ON_STRESS_RUN_TIMEOUT_STRING         | READ-ONLY            | *stress.Config.RunTimeoutString        | string          |
 | K8S_TESTER_ADD_ON_STRESS_OBJECT_KEY_PREFIX          | SETTABLE VIA ENV VAR | *stress.Config.ObjectKeyPrefix         | string          |
@@ -296,7 +293,6 @@
 | K8S_TESTER_ADD_ON_STRESS_LATENCY_SUMMARY_RANGE_GETS | READ-ONLY            | *stress.Config.LatencySummaryRangeGets | latency.Summary |
 *-----------------------------------------------------*----------------------*----------------------------------------*-----------------*
 
-
 *------------------------------------------------*----------------------*---------------------------*---------*
 |             ENVIRONMENTAL VARIABLE             |      FIELD TYPE      |           TYPE            | GO TYPE |
 *------------------------------------------------*----------------------*---------------------------*---------*
@@ -306,6 +302,51 @@
 | K8S_TESTER_ADD_ON_STRESS_REPOSITORY_NAME       | SETTABLE VIA ENV VAR | *ecr.Repository.Name      | string  |
 | K8S_TESTER_ADD_ON_STRESS_REPOSITORY_IMAGE_TAG  | SETTABLE VIA ENV VAR | *ecr.Repository.ImageTag  | string  |
 *------------------------------------------------*----------------------*---------------------------*---------*
+
+*-------------------------------------------------------------------*----------------------*-----------------------------------------------*---------*
+|                      ENVIRONMENTAL VARIABLE                       |      FIELD TYPE      |                     TYPE                      | GO TYPE |
+*-------------------------------------------------------------------*----------------------*-----------------------------------------------*---------*
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_ENABLE                        | SETTABLE VIA ENV VAR | *in_cluster.Config.Enable                     | bool    |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_MINIMUM_NODES                 | SETTABLE VIA ENV VAR | *in_cluster.Config.MinimumNodes               | int     |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_NAMESPACE                     | SETTABLE VIA ENV VAR | *in_cluster.Config.Namespace                  | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_COMPLETES                     | SETTABLE VIA ENV VAR | *in_cluster.Config.Completes                  | int32   |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_PARALLELS                     | SETTABLE VIA ENV VAR | *in_cluster.Config.Parallels                  | int32   |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_SCHEDULE                      | SETTABLE VIA ENV VAR | *in_cluster.Config.Schedule                   | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_SUCCESSFUL_JOBS_HISTORY_LIMIT | SETTABLE VIA ENV VAR | *in_cluster.Config.SuccessfulJobsHistoryLimit | int32   |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_FAILED_JOBS_HISTORY_LIMIT     | SETTABLE VIA ENV VAR | *in_cluster.Config.FailedJobsHistoryLimit     | int32   |
+*-------------------------------------------------------------------*----------------------*-----------------------------------------------*---------*
+
+*-----------------------------------------------------------*----------------------*---------------------------*---------*
+|                  ENVIRONMENTAL VARIABLE                   |      FIELD TYPE      |           TYPE            | GO TYPE |
+*-----------------------------------------------------------*----------------------*---------------------------*---------*
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_PARTITION  | SETTABLE VIA ENV VAR | *ecr.Repository.Partition | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_ACCOUNT_ID | SETTABLE VIA ENV VAR | *ecr.Repository.AccountID | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_REGION     | SETTABLE VIA ENV VAR | *ecr.Repository.Region    | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_NAME       | SETTABLE VIA ENV VAR | *ecr.Repository.Name      | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_IMAGE_TAG  | SETTABLE VIA ENV VAR | *ecr.Repository.ImageTag  | string  |
+*-----------------------------------------------------------*----------------------*---------------------------*---------*
+
+*------------------------------------------------------------------------------------------*----------------------*---------------------------------------------------*---------------*
+|                                  ENVIRONMENTAL VARIABLE                                  |      FIELD TYPE      |                       TYPE                        |    GO TYPE    |
+*------------------------------------------------------------------------------------------*----------------------*---------------------------------------------------*---------------*
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_RUN_TIMEOUT        | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.RunTimeout        | time.Duration |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_RUN_TIMEOUT_STRING | READ-ONLY            | *in_cluster.K8sTesterStressFlag.RunTimeoutString  | string        |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_OBJECT_KEY_PREFIX  | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.ObjectKeyPrefix   | string        |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_OBJECTS            | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.Objects           | int           |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_OBJECT_SIZE        | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.ObjectSize        | int           |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_UPDATE_CONCURRENCY | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.UpdateConcurrency | int           |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_LIST_BATCH_LIMIT   | SETTABLE VIA ENV VAR | *in_cluster.K8sTesterStressFlag.ListBatchLimit    | int64         |
+*------------------------------------------------------------------------------------------*----------------------*---------------------------------------------------*---------------*
+
+*---------------------------------------------------------------------------------------------*----------------------*---------------------------*---------*
+|                                   ENVIRONMENTAL VARIABLE                                    |      FIELD TYPE      |           TYPE            | GO TYPE |
+*---------------------------------------------------------------------------------------------*----------------------*---------------------------*---------*
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_REPOSITORY_PARTITION  | SETTABLE VIA ENV VAR | *ecr.Repository.Partition | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_REPOSITORY_ACCOUNT_ID | SETTABLE VIA ENV VAR | *ecr.Repository.AccountID | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_REPOSITORY_REGION     | SETTABLE VIA ENV VAR | *ecr.Repository.Region    | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_REPOSITORY_NAME       | SETTABLE VIA ENV VAR | *ecr.Repository.Name      | string  |
+| K8S_TESTER_ADD_ON_STRESS_IN_CLUSTER_REPOSITORY_K8S_TESTER_STRESS_FLAG_REPOSITORY_IMAGE_TAG  | SETTABLE VIA ENV VAR | *ecr.Repository.ImageTag  | string  |
+*---------------------------------------------------------------------------------------------*----------------------*---------------------------*---------*
 
 
 ```
