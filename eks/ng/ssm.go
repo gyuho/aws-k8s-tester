@@ -121,7 +121,7 @@ func (ts *tester) createSSMDocument() error {
 		if err := aws_s3.Upload(
 			ts.cfg.Logger,
 			ts.cfg.S3API,
-			ts.cfg.EKSConfig.S3BucketName,
+			ts.cfg.EKSConfig.S3.BucketName,
 			cur.SSMDocumentCFNStackYAMLS3Key,
 			cur.SSMDocumentCFNStackYAMLPath,
 		); err != nil {
@@ -320,7 +320,7 @@ func (ts *tester) sendSSMDocumentCommand() error {
 					"region":                  aws.StringSlice([]string{ts.cfg.EKSConfig.Region}),
 					"executionTimeoutSeconds": aws.StringSlice([]string{fmt.Sprintf("%d", cur.SSMDocumentExecutionTimeoutSeconds)}),
 				},
-				OutputS3BucketName: aws.String(ts.cfg.EKSConfig.S3BucketName),
+				OutputS3BucketName: aws.String(ts.cfg.EKSConfig.S3.BucketName),
 				OutputS3KeyPrefix:  aws.String(path.Join(ts.cfg.EKSConfig.Name, "ssm-outputs")),
 			}
 			if len(cur.SSMDocumentCommands) > 0 {

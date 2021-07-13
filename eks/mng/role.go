@@ -275,7 +275,7 @@ func (ts *tester) createRole() error {
 	}
 
 	tr := templateRole{
-		S3BucketName: ts.cfg.EKSConfig.S3BucketName,
+		S3BucketName: ts.cfg.EKSConfig.S3.BucketName,
 		ClusterName:  ts.cfg.EKSConfig.Name,
 	}
 	if ts.cfg.EKSConfig.IsEnabledAddOnFluentd() {
@@ -294,7 +294,7 @@ func (ts *tester) createRole() error {
 	if err := aws_s3.Upload(
 		ts.cfg.Logger,
 		ts.cfg.S3API,
-		ts.cfg.EKSConfig.S3BucketName,
+		ts.cfg.EKSConfig.S3.BucketName,
 		ts.cfg.EKSConfig.AddOnManagedNodeGroups.RoleCFNStackYAMLS3Key,
 		ts.cfg.EKSConfig.AddOnManagedNodeGroups.RoleCFNStackYAMLPath,
 	); err != nil {

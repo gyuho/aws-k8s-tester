@@ -241,7 +241,7 @@ func (ts *tester) createPolicy() error {
 	if err := aws_s3.Upload(
 		ts.cfg.Logger,
 		ts.cfg.S3API,
-		ts.cfg.EKSConfig.S3BucketName,
+		ts.cfg.EKSConfig.S3.BucketName,
 		ts.cfg.EKSConfig.AddOnAppMesh.PolicyCFNStackYAMLS3Key,
 		ts.cfg.EKSConfig.AddOnAppMesh.PolicyCFNStackYAMLPath,
 	); err != nil {

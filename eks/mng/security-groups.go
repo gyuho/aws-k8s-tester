@@ -230,7 +230,7 @@ func (ts *tester) createSG(name string) error {
 	if err := aws_s3.Upload(
 		ts.cfg.Logger,
 		ts.cfg.S3API,
-		ts.cfg.EKSConfig.S3BucketName,
+		ts.cfg.EKSConfig.S3.BucketName,
 		cur.RemoteAccessSecurityCFNStackYAMLS3Key,
 		cur.RemoteAccessSecurityCFNStackYAMLPath,
 	); err != nil {
@@ -257,7 +257,7 @@ func (ts *tester) createSG(name string) error {
 		Parameters: []*cloudformation.Parameter{
 			{
 				ParameterKey:   aws.String("ClusterControlPlaneSecurityGroupID"),
-				ParameterValue: aws.String(ts.cfg.EKSConfig.Status.ClusterControlPlaneSecurityGroupID),
+				ParameterValue: aws.String(ts.cfg.EKSConfig.VPC.SecurityGroupID),
 			},
 			{
 				ParameterKey:   aws.String("ManagedNodeGroupSecurityGroupID"),

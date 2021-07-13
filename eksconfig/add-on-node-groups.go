@@ -156,8 +156,8 @@ func (cfg *Config) validateAddOnNodeGroups() error {
 		return fmt.Errorf("NGs %d exceeds maximum number of NGs which is %d", n, NGsMaxLimit)
 	}
 
-	if cfg.Parameters.VersionValue < 1.14 {
-		return fmt.Errorf("Version %q not supported for AddOnNodeGroups", cfg.Parameters.Version)
+	if cfg.VersionValue < 1.14 {
+		return fmt.Errorf("Version %q not supported for AddOnNodeGroups", cfg.Version)
 	}
 
 	if cfg.AddOnNodeGroups.S3Dir == "" {
@@ -301,7 +301,7 @@ func (cfg *Config) validateAddOnNodeGroups() error {
 			if cur.RemoteAccessUserName != "ec2-user" {
 				return fmt.Errorf("AMIType %q but unexpected RemoteAccessUserName %q", cur.AMIType, cur.RemoteAccessUserName)
 			}
-			if cur.SSMDocumentName != "" && cfg.S3BucketName == "" {
+			if cur.SSMDocumentName != "" && cfg.S3.BucketName == "" {
 				return fmt.Errorf("AMIType %q requires SSMDocumentName %q but no S3BucketName", cur.AMIType, cur.SSMDocumentName)
 			}
 			if cur.KubeletExtraArgs != "" {
